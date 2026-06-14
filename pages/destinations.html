@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — GoTravel Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="row"><span>📞 +91 98765 43210</span><span>✉ hello@gotravelmart.com</span></div>
+      <div class="row">
+        <select data-currency><option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="EUR">€ EUR</option><option value="GBP">£ GBP</option><option value="AED">د.إ AED</option></select>
+        <a href="#">Help</a><a href="#">My Bookings</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="../index.html" class="brand"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>GoTravel <span style="color:var(--teal-dark)">Mart</span></a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="destinations.html" class="active">Destinations</a>
+        <a href="../index.html#packages">Tour Packages</a>
+        <a href="flights.html">Flights</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="../index.html#fixed">Group Tours</a>
+        <a href="../index.html#packages">Honeymoon</a>
+        <a href="../index.html#spiritual">Spiritual</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" data-toggle-dark><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <a class="btn btn-primary btn-sm" href="tel:+919876543210">Call Now</a>
+        <button class="icon-btn mobile-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="../index.html">Home</a> / Destinations</div>
+      <h1>Explore Our Destinations</h1>
+      <p>500+ stunning destinations across India and the world — find your next escape.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:40px">
+    <div class="container">
+      <div class="map-placeholder">
+        🗺 Interactive World Map — pan, zoom, click pins to discover destinations
+      </div>
+
+      <div class="with-sidebar">
+        <aside class="filters">
+          <h4>Filter</h4>
+          <div class="filter-group">
+            <strong style="display:block;margin-bottom:8px;font-size:.95rem">Region</strong>
+            <label><input type="checkbox" checked> India (180)</label>
+            <label><input type="checkbox" checked> Southeast Asia (45)</label>
+            <label><input type="checkbox"> Europe (62)</label>
+            <label><input type="checkbox"> Middle East (18)</label>
+            <label><input type="checkbox"> Americas (32)</label>
+            <label><input type="checkbox"> Australia & NZ (14)</label>
+          </div>
+          <div class="filter-group">
+            <strong style="display:block;margin-bottom:8px;font-size:.95rem">Type</strong>
+            <label><input type="checkbox"> Beach</label>
+            <label><input type="checkbox"> Mountains</label>
+            <label><input type="checkbox"> City</label>
+            <label><input type="checkbox"> Cultural</label>
+            <label><input type="checkbox"> Adventure</label>
+            <label><input type="checkbox"> Spiritual</label>
+          </div>
+          <div class="filter-group">
+            <strong style="display:block;margin-bottom:8px;font-size:.95rem">Budget (₹)</strong>
+            <input type="range" min="5000" max="300000" value="80000">
+            <div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-500)"><span>₹5K</span><span>₹3L</span></div>
+          </div>
+          <div class="filter-group">
+            <strong style="display:block;margin-bottom:8px;font-size:.95rem">Duration</strong>
+            <label><input type="checkbox"> 1–3 nights</label>
+            <label><input type="checkbox"> 4–6 nights</label>
+            <label><input type="checkbox"> 7–10 nights</label>
+            <label><input type="checkbox"> 10+ nights</label>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:14px">Apply Filters</button>
+        </aside>
+
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px">
+            <strong style="color:var(--ink-700)">Showing 10 of 500+ destinations</strong>
+            <select style="padding:10px 14px;border-radius:10px;border:1px solid var(--ink-100);font-family:inherit">
+              <option>Sort: Popular</option><option>Price: Low → High</option><option>Price: High → Low</option><option>Rating</option>
+            </select>
+          </div>
+
+          <div class="dest-grid" style="grid-template-columns:repeat(3,1fr)">
+            <article class="dest-card"><div class="photo bg-bali"></div><span class="top">★ 4.9</span><div class="body"><h3>Bali</h3><span class="meta">Beach · Culture</span><div class="price"><strong><span data-price-inr="42999">₹42,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-dubai"></div><span class="top">★ 4.8</span><div class="body"><h3>Dubai</h3><span class="meta">Luxury · Desert</span><div class="price"><strong><span data-price-inr="55999">₹55,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-maldives"></div><span class="top">★ 5.0</span><div class="body"><h3>Maldives</h3><span class="meta">Beach · Honeymoon</span><div class="price"><strong><span data-price-inr="89999">₹89,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-thailand"></div><span class="top">★ 4.7</span><div class="body"><h3>Thailand</h3><span class="meta">Beach · Nightlife</span><div class="price"><strong><span data-price-inr="38999">₹38,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-singapore"></div><span class="top">★ 4.8</span><div class="body"><h3>Singapore</h3><span class="meta">City · Family</span><div class="price"><strong><span data-price-inr="58999">₹58,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-switzerland"></div><span class="top">★ 4.9</span><div class="body"><h3>Switzerland</h3><span class="meta">Alps · Romance</span><div class="price"><strong><span data-price-inr="129999">₹1,29,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-kashmir"></div><span class="top">★ 4.8</span><div class="body"><h3>Kashmir</h3><span class="meta">Mountains · Snow</span><div class="price"><strong><span data-price-inr="22999">₹22,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-goa"></div><span class="top">★ 4.6</span><div class="body"><h3>Goa</h3><span class="meta">Beach · Party</span><div class="price"><strong><span data-price-inr="12999">₹12,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-kerala"></div><span class="top">★ 4.9</span><div class="body"><h3>Kerala</h3><span class="meta">Backwaters</span><div class="price"><strong><span data-price-inr="18999">₹18,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-ladakh"></div><span class="top">★ 4.8</span><div class="body"><h3>Ladakh</h3><span class="meta">High Altitude</span><div class="price"><strong><span data-price-inr="29999">₹29,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-vietnam"></div><span class="top">★ 4.8</span><div class="body"><h3>Vietnam</h3><span class="meta">Halong · Hanoi</span><div class="price"><strong><span data-price-inr="52999">₹52,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+            <article class="dest-card"><div class="photo bg-bhutan"></div><span class="top">★ 4.9</span><div class="body"><h3>Bhutan</h3><span class="meta">Cultural · Spiritual</span><div class="price"><strong><span data-price-inr="62999">₹62,999</span></strong><a class="quick" href="package-details.html">View →</a></div></div></article>
+          </div>
+
+          <div style="text-align:center;margin-top:36px">
+            <button class="btn btn-outline">Load more destinations</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0">
+        <span>© 2026 GoTravel Mart Pvt. Ltd. · Explore More. Travel Better.</span>
+        <div><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

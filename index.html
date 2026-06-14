@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoTravel Mart — Explore More. Travel Better.</title>
+  <meta name="description" content="Book flights, hotels, holiday packages, group tours, honeymoon trips, spiritual journeys and adventure travel with GoTravel Mart — your premium travel marketplace." />
+  <meta name="keywords" content="travel, holiday packages, flights, hotels, group tours, honeymoon, spiritual tours, adventure travel, India, international" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <span>📞 +91 98765 43210</span>
+        <span>✉ hello@gotravelmart.com</span>
+      </div>
+      <div class="row">
+        <select data-currency aria-label="Currency">
+          <option value="INR">₹ INR</option>
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GBP">£ GBP</option>
+          <option value="AED">د.إ AED</option>
+        </select>
+        <a href="#">Help</a>
+        <a href="#">My Bookings</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg>
+        </span>
+        GoTravel <span style="color:var(--teal-dark)">Mart</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/destinations.html">Destinations</a>
+        <a href="#packages">Tour Packages</a>
+        <a href="pages/flights.html">Flights</a>
+        <a href="pages/hotels.html">Hotels</a>
+        <a href="#fixed">Group Tours</a>
+        <a href="#packages">Honeymoon</a>
+        <a href="#spiritual">Spiritual</a>
+        <a href="pages/contact.html">About</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search" title="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" data-toggle-dark aria-label="Toggle theme" title="Toggle dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Account" title="Login / Signup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="tel:+919876543210">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <button class="icon-btn mobile-toggle" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow"><span class="dot"></span> Trusted by 250,000+ travellers since 2014</span>
+      <h1>Discover Your Next Adventure with GoTravel Mart</h1>
+      <p class="lead">Book flights, hotels, holiday packages, and unforgettable experiences worldwide — curated by India's most loved travel experts.</p>
+
+      <div class="hero-stats">
+        <div><strong>500+</strong><span>Destinations</span></div>
+        <div><strong>1,200+</strong><span>Curated Packages</span></div>
+        <div><strong>4.9 ★</strong><span>Avg. customer rating</span></div>
+        <div><strong>24×7</strong><span>Travel support</span></div>
+      </div>
+
+      <!-- Glass search -->
+      <div class="search-widget" id="search">
+        <div class="search-tabs" role="tablist">
+          <button class="active" data-tab="packages">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Holiday Package
+          </button>
+          <button data-tab="flights">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+            Flights
+          </button>
+          <button data-tab="hotels">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg>
+            Hotels
+          </button>
+        </div>
+
+        <div class="trip-options">
+          <label><input type="radio" name="trip" checked /> Round Trip</label>
+          <label><input type="radio" name="trip" /> One Way</label>
+          <label><input type="radio" name="trip" /> Multi City</label>
+        </div>
+
+        <div class="search-fields">
+          <div class="field">
+            <label>From</label>
+            <input type="text" value="New Delhi" />
+            <span class="hint">DEL · Indira Gandhi Intl</span>
+          </div>
+          <div class="field">
+            <label>To</label>
+            <input type="text" value="Bali, Indonesia" />
+            <span class="hint">DPS · Ngurah Rai</span>
+          </div>
+          <div class="field">
+            <label>Departure</label>
+            <input type="date" value="2026-07-12" />
+            <span class="hint">Sun, 12 Jul</span>
+          </div>
+          <div class="field">
+            <label>Return</label>
+            <input type="date" value="2026-07-19" />
+            <span class="hint">Sun, 19 Jul</span>
+          </div>
+          <div class="field">
+            <label>Travellers</label>
+            <select>
+              <option>2 Adults</option>
+              <option>1 Adult</option>
+              <option>2 Adults, 1 Child</option>
+              <option>Family of 4</option>
+            </select>
+            <span class="hint">Economy</span>
+          </div>
+          <button class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING DESTINATIONS -->
+  <section id="destinations">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Trending Now</span>
+          <h2>Top Destinations Travellers Love</h2>
+          <p>Handpicked getaways from India to the world — beach escapes, snow trails, city breaks and more.</p>
+        </div>
+        <a href="pages/destinations.html" class="link">View all destinations →</a>
+      </div>
+
+      <div class="dest-grid">
+        <article class="dest-card fade-up">
+          <div class="photo bg-bali"></div>
+          <span class="top">★ 4.9</span>
+          <div class="body">
+            <h3>Bali, Indonesia</h3>
+            <span class="meta">6N · 7D · Beach + Culture</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="42999">₹42,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-dubai"></div>
+          <span class="top">★ 4.8</span>
+          <div class="body">
+            <h3>Dubai, UAE</h3>
+            <span class="meta">5N · 6D · Luxury + Desert</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="55999">₹55,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-maldives"></div>
+          <span class="top">★ 5.0</span>
+          <div class="body">
+            <h3>Maldives</h3>
+            <span class="meta">4N · 5D · Overwater Villas</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="89999">₹89,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-thailand"></div>
+          <span class="top">★ 4.7</span>
+          <div class="body">
+            <h3>Thailand</h3>
+            <span class="meta">6N · 7D · Bangkok + Phuket</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="38999">₹38,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-singapore"></div>
+          <span class="top">★ 4.8</span>
+          <div class="body">
+            <h3>Singapore</h3>
+            <span class="meta">5N · 6D · City + Sentosa</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="58999">₹58,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-switzerland"></div>
+          <span class="top">★ 4.9</span>
+          <div class="body">
+            <h3>Switzerland</h3>
+            <span class="meta">8N · 9D · Alps + Lucerne</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="129999">₹1,29,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-kashmir"></div>
+          <span class="top">★ 4.8</span>
+          <div class="body">
+            <h3>Kashmir, India</h3>
+            <span class="meta">5N · 6D · Srinagar + Gulmarg</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="22999">₹22,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-goa"></div>
+          <span class="top">★ 4.6</span>
+          <div class="body">
+            <h3>Goa, India</h3>
+            <span class="meta">3N · 4D · Beach + Nightlife</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="12999">₹12,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-kerala"></div>
+          <span class="top">★ 4.9</span>
+          <div class="body">
+            <h3>Kerala, India</h3>
+            <span class="meta">5N · 6D · Backwaters + Hills</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="18999">₹18,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dest-card fade-up">
+          <div class="photo bg-ladakh"></div>
+          <span class="top">★ 4.8</span>
+          <div class="body">
+            <h3>Ladakh, India</h3>
+            <span class="meta">7N · 8D · Leh + Nubra</span>
+            <div class="price">
+              <strong>Starting <span data-price-inr="29999">₹29,999</span></strong>
+              <a class="quick" href="pages/package-details.html">Quick view →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOLIDAY PACKAGES -->
+  <section id="packages" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Best Sellers</span>
+          <h2>Holiday Packages for Every Traveller</h2>
+          <p>From short family weekends to month-long international trips — flexible itineraries, transparent pricing.</p>
+        </div>
+        <a href="pages/destinations.html" class="link">Browse all packages →</a>
+      </div>
+
+      <div class="pkg-tabs">
+        <button class="active" data-cat="all">All</button>
+        <button data-cat="domestic">Domestic Tours</button>
+        <button data-cat="international">International Tours</button>
+        <button data-cat="family">Family Packages</button>
+        <button data-cat="honeymoon">Honeymoon Packages</button>
+      </div>
+
+      <div class="pkg-grid" id="pkg-grid">
+
+        <article class="pkg-card fade-up" data-cat="international">
+          <div class="photo bg-bali">
+            <span class="tag">Bestseller</span>
+            <button class="wish" aria-label="Add to wishlist">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Bali, Indonesia</span><span class="rating">★ 4.9 (1.2k)</span></div>
+            <h3>Bali Honeymoon Escape</h3>
+            <div class="features">
+              <span>🌙 6N / 7D</span><span>🍽 Meals incl.</span><span>🛏 4★ Stays</span>
+            </div>
+            <div class="price-row">
+              <div>
+                <span class="strike"><span data-price-inr="55999">₹55,999</span></span>
+                <div class="now"><span data-price-inr="42999">₹42,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="international">
+          <div class="photo bg-dubai">
+            <span class="tag">-22%</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Dubai, UAE</span><span class="rating">★ 4.8 (980)</span></div>
+            <h3>Dubai Luxury & Desert</h3>
+            <div class="features"><span>🌙 5N / 6D</span><span>🏜 Safari</span><span>🛏 5★ Stays</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="72000">₹72,000</span></span>
+                <div class="now"><span data-price-inr="55999">₹55,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="honeymoon international">
+          <div class="photo bg-maldives">
+            <span class="tag">Honeymoon</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Maldives</span><span class="rating">★ 5.0 (640)</span></div>
+            <h3>Maldives Overwater Villas</h3>
+            <div class="features"><span>🌙 4N / 5D</span><span>🐠 Snorkel</span><span>🛥 Speedboat</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="120000">₹1,20,000</span></span>
+                <div class="now"><span data-price-inr="89999">₹89,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="family domestic">
+          <div class="photo bg-kerala">
+            <span class="tag">Family</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Kerala, India</span><span class="rating">★ 4.9 (1.5k)</span></div>
+            <h3>Kerala Backwaters Family Tour</h3>
+            <div class="features"><span>🌙 5N / 6D</span><span>🛶 Houseboat</span><span>👨‍👩‍👧 Family</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="24000">₹24,000</span></span>
+                <div class="now"><span data-price-inr="18999">₹18,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="domestic family">
+          <div class="photo bg-kashmir">
+            <span class="tag">New</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Kashmir, India</span><span class="rating">★ 4.8 (820)</span></div>
+            <h3>Paradise on Earth — Kashmir</h3>
+            <div class="features"><span>🌙 5N / 6D</span><span>⛷ Gondola</span><span>🚣 Shikara</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="32000">₹32,000</span></span>
+                <div class="now"><span data-price-inr="22999">₹22,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="international">
+          <div class="photo bg-thailand">
+            <span class="tag">Hot Deal</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Thailand</span><span class="rating">★ 4.7 (2.1k)</span></div>
+            <h3>Thailand Bangkok + Phuket</h3>
+            <div class="features"><span>🌙 6N / 7D</span><span>🏝 2 Islands</span><span>🛏 4★</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="48000">₹48,000</span></span>
+                <div class="now"><span data-price-inr="38999">₹38,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="international honeymoon">
+          <div class="photo bg-switzerland">
+            <span class="tag">Premium</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Switzerland</span><span class="rating">★ 4.9 (540)</span></div>
+            <h3>Swiss Alps Romance</h3>
+            <div class="features"><span>🌙 8N / 9D</span><span>🚞 Glacier Express</span><span>🛏 4★</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="160000">₹1,60,000</span></span>
+                <div class="now"><span data-price-inr="129999">₹1,29,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg-card fade-up" data-cat="domestic family">
+          <div class="photo bg-goa">
+            <span class="tag">Weekend</span>
+            <button class="wish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="row"><span class="place">Goa, India</span><span class="rating">★ 4.6 (3.4k)</span></div>
+            <h3>Goa Beach Getaway</h3>
+            <div class="features"><span>🌙 3N / 4D</span><span>🏖 Beach</span><span>🍹 Cruise</span></div>
+            <div class="price-row">
+              <div><span class="strike"><span data-price-inr="18000">₹18,000</span></span>
+                <div class="now"><span data-price-inr="12999">₹12,999</span><span class="per"> /person</span></div>
+              </div>
+              <a href="pages/package-details.html" class="btn btn-primary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIXED DEPARTURE TOURS -->
+  <section id="fixed" class="fixed-section">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Group Departures</span>
+          <h2>Fixed Departure Tours</h2>
+          <p>Travel with a group, share experiences and let our tour leaders handle every detail.</p>
+        </div>
+      </div>
+
+      <div class="carousel-wrap">
+        <button class="carousel-btn prev" aria-label="Previous">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-btn next" aria-label="Next">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="carousel">
+          <article class="pkg-card">
+            <div class="photo bg-europe"><span class="tag">15 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Europe</span><span class="rating">★ 4.9</span></div>
+              <h3>Best of Europe — 7 Countries</h3>
+              <div class="features"><span>🚍 Coach</span><span>👥 Group</span><span>📅 Sept 10</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="189999">₹1,89,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+
+          <article class="pkg-card">
+            <div class="photo bg-thailand"><span class="tag">7 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Thailand</span><span class="rating">★ 4.7</span></div>
+              <h3>Thailand Group Departure</h3>
+              <div class="features"><span>👥 25 pax</span><span>🛏 4★</span><span>📅 Jul 12</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="39999">₹39,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+
+          <article class="pkg-card">
+            <div class="photo bg-bali"><span class="tag">7 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Bali</span><span class="rating">★ 4.9</span></div>
+              <h3>Bali Wonder Group Trip</h3>
+              <div class="features"><span>👥 20 pax</span><span>🌺 Temples</span><span>📅 Aug 5</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="45999">₹45,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+
+          <article class="pkg-card">
+            <div class="photo bg-vietnam"><span class="tag">8 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Vietnam</span><span class="rating">★ 4.8</span></div>
+              <h3>Vietnam Highlights</h3>
+              <div class="features"><span>👥 Group</span><span>🌊 Halong Bay</span><span>📅 Sep 22</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="52999">₹52,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+
+          <article class="pkg-card">
+            <div class="photo bg-dubai"><span class="tag">5 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Dubai</span><span class="rating">★ 4.8</span></div>
+              <h3>Dubai City + Desert</h3>
+              <div class="features"><span>👥 30 pax</span><span>🏜 Safari</span><span>📅 Aug 18</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="49999">₹49,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+
+          <article class="pkg-card">
+            <div class="photo bg-bhutan"><span class="tag">6 Days</span></div>
+            <div class="body">
+              <div class="row"><span class="place">Bhutan</span><span class="rating">★ 4.9</span></div>
+              <h3>Bhutan Cultural Trail</h3>
+              <div class="features"><span>👥 Group</span><span>🏯 Monastery</span><span>📅 Oct 14</span></div>
+              <div class="price-row"><div class="now"><span data-price-inr="62999">₹62,999</span><span class="per"> /person</span></div><a href="pages/package-details.html" class="btn btn-primary btn-sm">Book</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPIRITUAL & PILGRIMAGE -->
+  <section id="spiritual">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Faith & Tradition</span>
+          <h2>Spiritual & Pilgrimage Tours</h2>
+          <p>Sacred journeys to the most revered destinations across India, conducted with reverence and care.</p>
+        </div>
+      </div>
+
+      <div class="small-grid">
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-kedarnath"></div><div class="body"><h3>Kedarnath</h3><span>From ₹14,999</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-badrinath"></div><div class="body"><h3>Badrinath</h3><span>From ₹13,499</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-vaishno"></div><div class="body"><h3>Vaishno Devi</h3><span>From ₹8,999</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-varanasi"></div><div class="body"><h3>Varanasi</h3><span>From ₹9,499</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-ayodhya"></div><div class="body"><h3>Ayodhya</h3><span>From ₹7,999</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-rameshwaram"></div><div class="body"><h3>Rameshwaram</h3><span>From ₹11,499</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-tirupati"></div><div class="body"><h3>Tirupati</h3><span>From ₹6,999</span></div></a>
+        <a class="small-card fade-up" href="pages/package-details.html"><div class="photo bg-mathura"></div><div class="body"><h3>Mathura Vrindavan</h3><span>From ₹5,499</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVENTURE EXPERIENCES -->
+  <section id="adventure" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Thrill-Seekers</span>
+          <h2>Adventure Experiences</h2>
+          <p>Get out of your comfort zone — curated experiences for every level of adventurer.</p>
+        </div>
+      </div>
+
+      <div class="small-grid">
+        <a class="small-card fade-up" href="#"><div class="photo bg-trek"></div><div class="body"><h3>Himalayan Trekking</h3><span>Multi-day expeditions</span></div></a>
+        <a class="small-card fade-up" href="#"><div class="photo bg-scuba"></div><div class="body"><h3>Scuba Diving</h3><span>Andaman · Maldives</span></div></a>
+        <a class="small-card fade-up" href="#"><div class="photo bg-desert"></div><div class="body"><h3>Desert Safari</h3><span>Dubai · Jaisalmer</span></div></a>
+        <a class="small-card fade-up" href="#"><div class="photo bg-wild"></div><div class="body"><h3>Wildlife Safari</h3><span>Ranthambore · Corbett</span></div></a>
+        <a class="small-card fade-up" href="#"><div class="photo bg-raft"></div><div class="body"><h3>River Rafting</h3><span>Rishikesh · Spiti</span></div></a>
+        <a class="small-card fade-up" href="#"><div class="photo bg-para"></div><div class="body"><h3>Paragliding</h3><span>Bir Billing · Manali</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">The GoTravel Mart Promise</span>
+          <h2>Why 250,000+ Travellers Choose Us</h2>
+          <p>A modern travel marketplace built on transparency, expertise and uncompromising service.</p>
+        </div>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg></div>
+          <h3>Best Price Guarantee</h3>
+          <p>Find a lower price within 24h of booking? We'll refund the difference. No questions asked.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>24×7 Support</h3>
+          <p>Real travel experts available around the clock — over phone, WhatsApp, email and live chat.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Trusted Travel Experts</h3>
+          <p>A decade of experience, 1200+ partner hotels, and IATA-certified tour leaders.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Easy Booking Process</h3>
+          <p>From search to confirmation in under 5 minutes. Pay in EMIs, get instant e-vouchers.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Secure Payments</h3>
+          <p>PCI-DSS certified gateway. UPI, cards, net-banking and international wallets supported.</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Customized Itineraries</h3>
+          <p>Every trip is tailored to your style — budget, family-friendly, luxury, off-beat or anything in between.</p>
+        </div>
+      </div>
+
+      <div class="counters">
+        <div><strong><span data-count="250000" data-suffix="+">0</span></strong><span>Happy Travellers</span></div>
+        <div><strong><span data-count="500" data-suffix="+">0</span></strong><span>Destinations</span></div>
+        <div><strong><span data-count="1200" data-suffix="+">0</span></strong><span>Curated Packages</span></div>
+        <div><strong><span data-count="12" data-suffix=" yrs">0</span></strong><span>Of Excellence</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Travellers Speak</span>
+          <h2>Stories from Our Travellers</h2>
+          <p>Hear how GoTravel Mart turned ordinary trips into lifelong memories.</p>
+        </div>
+      </div>
+
+      <div class="testi-grid">
+        <article class="testi-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Our Maldives honeymoon was nothing short of magical. Every transfer, every meal, every sunset cruise was planned to perfection. GoTravel Mart truly went above and beyond."</p>
+          <div class="person">
+            <div class="avatar">AS</div>
+            <div><strong>Ananya & Shourya</strong><span>Maldives · Honeymoon</span></div>
+          </div>
+        </article>
+
+        <article class="testi-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Took my parents to Vaishno Devi & Kashmir. The team handled their dietary needs, slower pace, and even surprise birthday cake. Highly recommended for senior-friendly trips."</p>
+          <div class="person">
+            <div class="avatar">RK</div>
+            <div><strong>Rohit Kapoor</strong><span>Kashmir + Vaishno Devi</span></div>
+          </div>
+        </article>
+
+        <article class="testi-card fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"15-day Europe tour with the group was the trip of a lifetime. Tour leader Sameer was incredible. Already booked our next trip — Vietnam in November!"</p>
+          <div class="person">
+            <div class="avatar">PM</div>
+            <div><strong>Priya Menon</strong><span>Europe Group Tour</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div>
+          <span class="eyebrow">Travel Inspiration</span>
+          <h2>From the GoTravel Mart Journal</h2>
+          <p>Expert guides, packing lists, visa tips and budget hacks — straight from our travel team.</p>
+        </div>
+        <a href="#" class="link">All articles →</a>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card fade-up">
+          <div class="photo bg-blog1"></div>
+          <div class="body">
+            <span class="cat">Honeymoon</span>
+            <h3>Top 10 Honeymoon Destinations for 2026</h3>
+            <div class="meta">8 min read · 12 Jun 2026</div>
+          </div>
+        </article>
+        <article class="blog-card fade-up">
+          <div class="photo bg-blog2"></div>
+          <div class="body">
+            <span class="cat">Family</span>
+            <h3>Best Family Vacations You Can Plan This Summer</h3>
+            <div class="meta">6 min read · 5 Jun 2026</div>
+          </div>
+        </article>
+        <article class="blog-card fade-up">
+          <div class="photo bg-blog3"></div>
+          <div class="body">
+            <span class="cat">Budget</span>
+            <h3>Budget Travel Tips That Save You ₹40,000+</h3>
+            <div class="meta">7 min read · 28 May 2026</div>
+          </div>
+        </article>
+        <article class="blog-card fade-up">
+          <div class="photo bg-blog4"></div>
+          <div class="body">
+            <span class="cat">Visa</span>
+            <h3>The 2026 Visa Guide for Indian Passport Holders</h3>
+            <div class="meta">10 min read · 20 May 2026</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="newsletter fade-up">
+        <div>
+          <h2>Get Exclusive Travel Deals</h2>
+          <p>Drop your email and we'll send you handpicked offers, last-minute deals, and travel guides — no spam, ever.</p>
+        </div>
+        <form data-demo>
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="color:#fff">
+            <span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>
+            GoTravel <span style="color:var(--teal)">Mart</span>
+          </a>
+          <p>Explore More. Travel Better. India's premium travel marketplace for holidays, flights, hotels and unforgettable experiences.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.87v-7H7.9V12h2.5V9.8c0-2.47 1.47-3.84 3.73-3.84 1.08 0 2.21.19 2.21.19v2.43h-1.25c-1.23 0-1.61.76-1.61 1.55V12h2.74l-.44 2.87h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5c0-1.4-1.1-2.5-2.5-2.5C18 4.7 12 4.7 12 4.7s-6 0-8.5.3C2.1 5 1 6.1 1 7.5 .7 9 .7 12 .7 12s0 3 .3 4.5c0 1.4 1.1 2.5 2.5 2.5C6 19.3 12 19.3 12 19.3s6 0 8.5-.3c1.4 0 2.5-1.1 2.5-2.5.3-1.5.3-4.5.3-4.5s0-3-.3-4.5zM9.7 15.3V8.7L15.5 12l-5.8 3.3z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c-.002-.249 1.51-2.772 1.818-4.013z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="pages/contact.html">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Partner with Us</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="pages/destinations.html">Bali</a></li>
+            <li><a href="pages/destinations.html">Dubai</a></li>
+            <li><a href="pages/destinations.html">Maldives</a></li>
+            <li><a href="pages/destinations.html">Switzerland</a></li>
+            <li><a href="pages/destinations.html">Kashmir</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Visa Information</a></li>
+            <li><a href="#">Travel Insurance</a></li>
+            <li><a href="#">Forex Services</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>📍 GoTravel Mart Tower, MG Road, New Delhi 110001</li>
+            <li>📞 +91 98765 43210</li>
+            <li>✉ hello@gotravelmart.com</li>
+            <li>🕘 Mon–Sun · 24×7 Support</li>
+          </ul>
+          <div class="payment-row">
+            <span>VISA</span><span>Mastercard</span><span>UPI</span><span>Amex</span><span>Net Banking</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 GoTravel Mart Pvt. Ltd. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating actions -->
+  <div class="floating">
+    <button class="ai-widget" aria-label="AI Travel Recommendation" title="AI Travel Recommendation">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </button>
+    <button class="chat" aria-label="Live Chat" title="Live chat support">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <a class="wa" href="https://wa.me/919876543210" aria-label="WhatsApp" title="WhatsApp us">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    </a>
+  </div>
+
+  <!-- AI Recommendation panel -->
+  <aside class="ai-panel">
+    <h4>✨ AI Travel Recommender</h4>
+    <p>Tell us your vibe — we'll suggest perfect destinations.</p>
+    <div class="chip-row">
+      <span class="chip active">Beach</span>
+      <span class="chip">Mountains</span>
+      <span class="chip">Spiritual</span>
+      <span class="chip">Adventure</span>
+      <span class="chip">Honeymoon</span>
+      <span class="chip">Family</span>
+    </div>
+    <input type="text" placeholder="Budget per person, e.g. ₹50,000" />
+    <p style="margin: 10px 0 0; font-size: .82rem;">Suggested: <strong>Bali · Maldives · Thailand</strong></p>
+  </aside>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
