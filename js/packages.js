@@ -8,14 +8,13 @@
   const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
   const inr = n => '₹' + Number(n || 0).toLocaleString('en-IN');
 
-  fetch('/api/packages')
-    .then(r => r.json())
+  gtmApi('GET', '/packages')
     .then(list => {
-      if (!Array.isArray(list) || !list.length) return; // keep static fallback
+      if (!Array.isArray(list) || !list.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-500);padding:30px">No packages yet.</p>'; return; }
       grid.innerHTML = list.map(cardHtml).join('');
       wire(list);
     })
-    .catch(() => { /* offline / opened via file:// — leave existing markup */ });
+    .catch(() => { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-500);padding:30px">Could not load packages.</p>'; });
 
   function inquiryHref(p) {
     const params = new URLSearchParams({

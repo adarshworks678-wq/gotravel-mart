@@ -194,9 +194,10 @@
     <a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
   </div>
 
+  <script src="../js/store.js"></script>
   <script src="../js/main.js"></script>
   <script>
-  /* ---- Inquiry page logic (CRM = localStorage prototype) ---- */
+  /* ---- Inquiry page logic ---- */
   (function () {
     const qs = new URLSearchParams(location.search);
     const pkg = {
@@ -289,20 +290,13 @@
       const orig = submitBtn.innerHTML;
       submitBtn.disabled = true; submitBtn.innerHTML = 'Submitting…';
 
-      let ref = 'GTM-' + Date.now().toString().slice(-6); // fallback if offline
+      let ref = 'GTM-' + Date.now().toString().slice(-6); // fallback
       try {
-        const r = await fetch('/api/enquiries', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await r.json();
-        if (!r.ok) throw new Error(data.error || 'Could not submit');
+        const data = await gtmApi('POST', '/enquiries', payload);
         ref = data.ref || ref;
       } catch (err) {
-        // Backend unreachable (e.g. opened via file://) — keep a local copy and continue.
         showErr('');
-        console.warn('Enquiry POST failed, saved locally only:', err.message);
+        console.warn('Enquiry submit issue, saved locally:', err.message);
       } finally {
         submitBtn.disabled = false; submitBtn.innerHTML = orig;
       }

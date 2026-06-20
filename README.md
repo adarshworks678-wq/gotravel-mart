@@ -163,6 +163,12 @@ messages. It is git-ignored. Delete it to reset to the seeded 8 packages.
 **Other hosts:** a `Dockerfile` and `Procfile` are included — works on Railway, Fly.io,
 Cloud Run, or any VPS (`node server.js` behind pm2 + Nginx).
 
+**Static / GitHub Pages fallback:** if the site is opened where there's no backend
+(GitHub Pages, `file://`), `js/store.js` transparently falls back to a localStorage
+store with demo data — so packages, admin (no login), flights/hotels search and a
+simulated checkout all still work, **per-browser only**. Real CRM/WhatsApp/ticketing
+and shared data require the Node backend (deploy as above).
+
 **Notes:**
 - Free tiers may sleep on idle — a sleeping server can't send reminders. Use a small
   paid/always-on instance for production.
