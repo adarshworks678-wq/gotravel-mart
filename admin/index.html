@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — GoTravel Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .admin-top { background: var(--bg-card); border-bottom: 1px solid var(--ink-100); padding: 14px 0; position: sticky; top: 0; z-index: 20; }
+    .admin-top .container { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .login-wrap { min-height: 80vh; display: grid; place-items: center; padding: 20px; }
+    .login-card { width: 100%; max-width: 380px; padding: 34px; background: var(--bg-card); border: 1px solid var(--ink-100); border-radius: var(--r-md); box-shadow: var(--shadow-md); }
+    .tabs-bar { display: flex; gap: 8px; margin: 22px 0; }
+    .tabs-bar button { padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--ink-100); background: var(--bg); font-weight: 600; cursor: pointer; color: var(--ink-700); }
+    .tabs-bar button.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .panel { background: var(--bg-card); border: 1px solid var(--ink-100); border-radius: var(--r-md); padding: 22px; }
+    .pkg-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pkg-form .full { grid-column: 1 / -1; }
+    .pkg-form label { display: block; font-size: .8rem; font-weight: 600; color: var(--ink-700); margin-bottom: 5px; }
+    .pkg-form input, .pkg-form select, .pkg-form textarea { width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--ink-100); font-family: inherit; font-size: .92rem; background: var(--bg); color: var(--ink-900); }
+    .pkg-form textarea { min-height: 70px; resize: vertical; }
+    .swatch { height: 46px; border-radius: 9px; border: 1px solid var(--ink-100); background-size: cover; background-position: center; }
+    .mini { font-size: .78rem; color: var(--ink-500); }
+    .row-actions { display: flex; gap: 6px; }
+    .btn-xs { padding: 6px 12px; font-size: .8rem; border-radius: 8px; }
+    .btn-danger { background: #c0392b; color: #fff; border: 0; }
+    .pill-off { background: var(--bg-soft); color: var(--ink-500); }
+    .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; place-items: center; z-index: 50; padding: 20px; overflow: auto; }
+    .modal-back.open { display: grid; }
+    .modal { width: 100%; max-width: 720px; background: var(--bg-card); border-radius: var(--r-md); padding: 26px; box-shadow: var(--shadow-md); }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--ink-900); color: #fff; padding: 12px 22px; border-radius: 999px; opacity: 0; transition: opacity .25s; z-index: 80; }
+    .toast.show { opacity: 1; }
+    @media (max-width: 700px) { .pkg-form { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== LOGIN ===== -->
+  <div id="login" class="login-wrap">
+    <form class="login-card" id="login-form">
+      <a class="brand" href="../index.html" style="display:inline-flex;margin-bottom:18px"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>GoTravel <span style="color:var(--teal-dark)">Mart</span></a>
+      <h2 style="margin:0 0 4px">Admin sign in</h2>
+      <p class="mini" style="margin:0 0 18px">Manage packages and view enquiries.</p>
+      <label class="mini" for="pw">Password</label>
+      <input id="pw" type="password" placeholder="Enter admin password" autocomplete="current-password"
+             style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--ink-100);margin:6px 0 14px;font-family:inherit;background:var(--bg);color:var(--ink-900)" />
+      <p id="login-err" style="display:none;color:#c0392b;font-size:.85rem;font-weight:600;margin:0 0 12px"></p>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;padding:13px">Sign in →</button>
+    </form>
+  </div>
+
+  <!-- ===== APP ===== -->
+  <div id="app" style="display:none">
+    <div class="admin-top">
+      <div class="container">
+        <a class="brand" href="../index.html"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>GoTravel <span style="color:var(--teal-dark)">Mart</span> · Admin</a>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn btn-outline btn-sm" href="../index.html" target="_blank">View site ↗</a>
+          <button class="btn btn-outline btn-sm" id="logout">Log out</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding:24px 0 80px">
+      <div class="crm-stats" id="stats" style="margin-bottom:6px"></div>
+
+      <div class="tabs-bar">
+        <button data-tab="packages" class="active">📦 Packages</button>
+        <button data-tab="enquiries">📨 Enquiries</button>
+        <button data-tab="bookings">🎟 Bookings</button>
+      </div>
+
+      <!-- Packages tab -->
+      <div id="tab-packages">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+          <strong id="pkg-count">Packages</strong>
+          <button class="btn btn-primary btn-sm" id="add-pkg">+ Add package</button>
+        </div>
+        <div class="lead-table-wrap">
+          <table class="lead-table">
+            <thead><tr><th>#</th><th>Package</th><th>Category</th><th>Price</th><th>Image</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="pkg-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Enquiries tab -->
+      <div id="tab-enquiries" style="display:none">
+        <div class="lead-table-wrap">
+          <table class="lead-table">
+            <thead><tr><th>Ref</th><th>Name</th><th>Contact</th><th>Package</th><th>Travel date</th><th>Appointment</th><th>WhatsApp</th><th>CRM</th><th>Submitted</th></tr></thead>
+            <tbody id="enq-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bookings tab (flights + hotels) -->
+      <div id="tab-bookings" style="display:none">
+        <div class="lead-table-wrap">
+          <table class="lead-table">
+            <thead><tr><th>Ref</th><th>Type</th><th>Customer</th><th>Details</th><th>Amount</th><th>Payment</th><th>Provider ref</th><th>Status</th><th>Booked</th></tr></thead>
+            <tbody id="bkg-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Package modal ===== -->
+  <div class="modal-back" id="modal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 id="modal-title" style="margin:0">Add package</h2>
+        <button class="btn btn-outline btn-xs" id="modal-close">✕ Close</button>
+      </div>
+      <form class="pkg-form" id="pkg-form">
+        <input type="hidden" id="p-id" />
+        <div class="full"><label>Title *</label><input id="p-title" required placeholder="e.g. Andaman Island Hopper" /></div>
+        <div><label>Place</label><input id="p-place" placeholder="e.g. Andaman, India" /></div>
+        <div>
+          <label>Category *</label>
+          <select id="p-category"><option value="domestic">Domestic (India)</option><option value="international">International</option></select>
+        </div>
+        <div><label>Price ₹ (per person) *</label><input id="p-price" type="number" min="0" placeholder="27999" required /></div>
+        <div><label>Strike / old price ₹</label><input id="p-strike" type="number" min="0" placeholder="35000" /></div>
+        <div>
+          <label>Image</label>
+          <input id="p-image" list="bg-presets" placeholder="bg-bali  or  https://image-url.jpg" />
+          <datalist id="bg-presets"></datalist>
+        </div>
+        <div><label>&nbsp;</label><div class="swatch" id="p-swatch"></div></div>
+        <div><label>Duration</label><input id="p-duration" placeholder="6N / 7D" /></div>
+        <div><label>Rating text</label><input id="p-rating" placeholder="★ 4.8 (1.1k)" /></div>
+        <div><label>Tag / badge</label><input id="p-tag" placeholder="New / Bestseller / Hot Deal" /></div>
+        <div><label>Sort order</label><input id="p-sort" type="number" placeholder="0" /></div>
+        <div class="full"><label>Features (comma separated)</label><input id="p-features" placeholder="🏖 Beach, 🤿 Scuba, 🛏 4★ Stays" /></div>
+        <div class="full"><label>Description</label><textarea id="p-description" placeholder="Short overview shown on the package page"></textarea></div>
+        <div class="full"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="p-active" checked style="width:auto"> Visible on website</label></div>
+        <div class="full" style="display:flex;gap:10px;justify-content:flex-end">
+          <button type="button" class="btn btn-outline" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save package</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+  (function () {
+    const TKEY = 'gtm_admin_token';
+    let token = localStorage.getItem(TKEY) || '';
+    const $ = s => document.querySelector(s);
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    const inr = n => '₹' + Number(n || 0).toLocaleString('en-IN');
+    const PRESETS = ['bg-bali','bg-dubai','bg-maldives','bg-thailand','bg-singapore','bg-vietnam','bg-switzerland','bg-europe','bg-desert','bg-goa','bg-kerala','bg-kashmir','bg-ladakh','bg-bhutan','bg-wild','bg-trek','bg-raft','bg-scuba','bg-para','bg-varanasi','bg-tirupati','bg-vaishno','bg-kedarnath','bg-badrinath','bg-mathura','bg-ayodhya','bg-rameshwaram'];
+
+    let toastTimer;
+    function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2200); }
+
+    async function api(path, opts = {}) {
+      opts.headers = Object.assign({ 'content-type': 'application/json' }, opts.headers || {});
+      if (token) opts.headers.authorization = 'Bearer ' + token;
+      const r = await fetch('/api' + path, opts);
+      if (r.status === 401) { logout(); throw new Error('Unauthorized'); }
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error || 'Request failed');
+      return data;
+    }
+
+    /* ---- auth ---- */
+    function showApp() { $('#login').style.display = 'none'; $('#app').style.display = 'block'; loadAll(); }
+    function showLogin() { $('#app').style.display = 'none'; $('#login').style.display = 'grid'; }
+    function logout() { token = ''; localStorage.removeItem(TKEY); showLogin(); }
+
+    $('#login-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      $('#login-err').style.display = 'none';
+      try {
+        const r = await fetch('/api/admin/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ password: $('#pw').value }) });
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error || 'Login failed');
+        token = d.token; localStorage.setItem(TKEY, token); $('#pw').value = ''; showApp();
+      } catch (err) { $('#login-err').textContent = err.message; $('#login-err').style.display = 'block'; }
+    });
+    $('#logout').addEventListener('click', async () => { try { await api('/admin/logout', { method: 'POST' }); } catch {} logout(); });
+
+    /* ---- tabs ---- */
+    document.querySelectorAll('.tabs-bar button').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.tabs-bar button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const t = b.dataset.tab;
+      $('#tab-packages').style.display = t === 'packages' ? 'block' : 'none';
+      $('#tab-enquiries').style.display = t === 'enquiries' ? 'block' : 'none';
+      $('#tab-bookings').style.display = t === 'bookings' ? 'block' : 'none';
+    }));
+
+    /* ---- load data ---- */
+    async function loadAll() { loadStats(); loadPackages(); loadEnquiries(); loadBookings(); }
+
+    async function loadStats() {
+      try {
+        const s = await api('/admin/stats');
+        $('#stats').innerHTML = [
+          ['Enquiries', s.enquiries], ['Appointments', s.appointments],
+          ['Packages', s.packages], ['Live on site', s.active],
+        ].map(([l, v]) => `<div class="crm-stat"><strong>${v}</strong><span>${l}</span></div>`).join('');
+      } catch {}
+    }
+
+    async function loadPackages() {
+      const list = await api('/admin/packages');
+      $('#pkg-count').textContent = `${list.length} packages`;
+      $('#pkg-body').innerHTML = list.map(p => {
+        const isClass = (p.image || '').startsWith('bg-');
+        const sw = isClass ? `<div class="${p.image}" style="width:46px;height:30px;border-radius:6px"></div>` : `<div style="width:46px;height:30px;border-radius:6px;background:url('${esc(p.image)}') center/cover"></div>`;
+        return `<tr>
+          <td>${p.id}</td>
+          <td><strong>${esc(p.title)}</strong><br><span class="mini">${esc(p.place || '')}</span></td>
+          <td>${p.category === 'domestic' ? 'Domestic' : 'International'}</td>
+          <td>${inr(p.price_inr)}</td>
+          <td>${sw}</td>
+          <td>${p.active ? '<span class="badge-status">Live</span>' : '<span class="badge-status pill-off">Hidden</span>'}</td>
+          <td><div class="row-actions">
+            <button class="btn btn-outline btn-xs" data-edit="${p.id}">Edit</button>
+            <button class="btn btn-xs btn-danger" data-del="${p.id}">Delete</button>
+          </div></td>
+        </tr>`;
+      }).join('');
+      window.__pkgs = list;
+      $('#pkg-body').querySelectorAll('[data-edit]').forEach(b => b.addEventListener('click', () => openModal(list.find(x => x.id == b.dataset.edit))));
+      $('#pkg-body').querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', () => delPackage(b.dataset.del)));
+    }
+
+    async function loadEnquiries() {
+      const list = await api('/admin/enquiries');
+      $('#enq-body').innerHTML = list.length ? list.map(e => {
+        const appt = e.appointment ? `${esc(e.appointment.date)} · ${esc(e.appointment.slot)}<br><span class="mini">${esc(e.appointment.mode)}</span>` : '<span class="mini">Callback only</span>';
+        const wa = e.messages && e.messages.length ? e.messages.map(m => `<span class="badge-appt">${m.type[0].toUpperCase()}: ${m.status}</span>`).join(' ') : '<span class="mini">—</span>';
+        const crmClass = e.crm_status === 'synced' ? 'badge-status' : 'badge-status pill-off';
+        return `<tr>
+          <td><span class="ref" style="font-family:var(--font-display);font-weight:700;color:var(--primary)">${esc(e.ref)}</span></td>
+          <td>${esc(e.name)}<br><span class="mini">${esc(e.city || '')}</span></td>
+          <td>${esc(e.phone)}<br><span class="mini">${esc(e.email)}</span></td>
+          <td>${esc(e.package_name || '—')}</td>
+          <td>${esc(e.travel_date || '—')}</td>
+          <td>${appt}</td>
+          <td>${wa}</td>
+          <td><span class="${crmClass}">${esc(e.crm_status)}</span></td>
+          <td>${new Date(e.created_at).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}</td>
+        </tr>`;
+      }).join('') : '<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--ink-500)">No enquiries yet</td></tr>';
+    }
+
+    async function loadBookings() {
+      const list = await api('/admin/bookings');
+      $('#bkg-body').innerHTML = list.length ? list.map(b => {
+        const statusClass = b.status === 'confirmed' ? 'badge-status' : 'badge-status pill-off';
+        const mode = b.provider_mode && b.provider_mode !== 'live' ? ` <span class="mini">(${esc(b.provider_mode)})</span>` : '';
+        return `<tr>
+          <td><span class="ref" style="font-family:var(--font-display);font-weight:700;color:var(--primary)">${esc(b.ref)}</span></td>
+          <td>${b.type === 'flight' ? '✈ Flight' : '🏨 Hotel'}</td>
+          <td>${esc(b.name)}<br><span class="mini">${esc(b.phone)} · ${esc(b.email)}</span></td>
+          <td>${esc(b.summary || '')}</td>
+          <td>${inr(b.amount_inr)}</td>
+          <td><span class="badge-appt">${esc(b.pay_status)} · ${esc(b.pay_mode)}</span></td>
+          <td>${esc(b.provider_ref || '—')}${mode}</td>
+          <td><span class="${statusClass}">${esc(b.status)}</span></td>
+          <td>${new Date(b.created_at).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}</td>
+        </tr>`;
+      }).join('') : '<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--ink-500)">No bookings yet</td></tr>';
+    }
+
+    /* ---- modal / form ---- */
+    $('#bg-presets').innerHTML = PRESETS.map(p => `<option value="${p}">`).join('');
+    function updateSwatch() {
+      const v = $('#p-image').value.trim();
+      $('#p-swatch').style.background = '';
+      $('#p-swatch').className = 'swatch';
+      if (!v) return;
+      if (v.startsWith('bg-')) $('#p-swatch').classList.add(v);
+      else $('#p-swatch').style.backgroundImage = `url('${v}')`;
+    }
+    $('#p-image').addEventListener('input', updateSwatch);
+
+    function openModal(p) {
+      $('#modal-title').textContent = p ? 'Edit package' : 'Add package';
+      $('#p-id').value = p ? p.id : '';
+      $('#p-title').value = p ? p.title : '';
+      $('#p-place').value = p ? (p.place || '') : '';
+      $('#p-category').value = p ? p.category : 'domestic';
+      $('#p-price').value = p ? p.price_inr : '';
+      $('#p-strike').value = p && p.strike_inr ? p.strike_inr : '';
+      $('#p-image').value = p ? (p.image || '') : 'bg-bali';
+      $('#p-duration').value = p ? (p.duration || '') : '';
+      $('#p-rating').value = p ? (p.rating || '') : '';
+      $('#p-tag').value = p ? (p.tag || '') : '';
+      $('#p-sort').value = p ? (p.sort || 0) : '';
+      $('#p-features').value = p ? (p.features || []).join(', ') : '';
+      $('#p-description').value = p ? (p.description || '') : '';
+      $('#p-active').checked = p ? !!p.active : true;
+      updateSwatch();
+      $('#modal').classList.add('open');
+    }
+    function closeModal() { $('#modal').classList.remove('open'); }
+    $('#add-pkg').addEventListener('click', () => openModal(null));
+    $('#modal-close').addEventListener('click', closeModal);
+    $('#modal-cancel').addEventListener('click', closeModal);
+    $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+
+    $('#pkg-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const id = $('#p-id').value;
+      const body = {
+        title: $('#p-title').value.trim(),
+        place: $('#p-place').value.trim(),
+        category: $('#p-category').value,
+        price_inr: $('#p-price').value,
+        strike_inr: $('#p-strike').value || null,
+        image: $('#p-image').value.trim() || 'bg-bali',
+        duration: $('#p-duration').value.trim(),
+        rating: $('#p-rating').value.trim(),
+        tag: $('#p-tag').value.trim(),
+        sort: $('#p-sort').value || 0,
+        features: $('#p-features').value,
+        description: $('#p-description').value.trim(),
+        active: $('#p-active').checked,
+      };
+      try {
+        await api(id ? `/admin/packages/${id}` : '/admin/packages', { method: id ? 'PUT' : 'POST', body: JSON.stringify(body) });
+        closeModal(); toast(id ? 'Package updated ✓' : 'Package added ✓'); loadStats(); loadPackages();
+      } catch (err) { toast('Error: ' + err.message); }
+    });
+
+    async function delPackage(id) {
+      const p = (window.__pkgs || []).find(x => x.id == id);
+      if (!confirm(`Delete "${p ? p.title : 'this package'}"? This removes it from the website.`)) return;
+      try { await api(`/admin/packages/${id}`, { method: 'DELETE' }); toast('Package deleted'); loadStats(); loadPackages(); }
+      catch (err) { toast('Error: ' + err.message); }
+    }
+
+    /* ---- boot ---- */
+    if (token) showApp(); else showLogin();
+  })();
+  </script>
+</body>
+</html>

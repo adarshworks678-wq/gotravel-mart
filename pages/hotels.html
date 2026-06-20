@@ -37,13 +37,16 @@
       <h1>Find Hotels You'll Love</h1>
 
       <div class="search-widget" style="background:rgba(255,255,255,.5);border-color:var(--ink-100);box-shadow:var(--shadow-md);margin-top:20px">
-        <div class="search-fields">
-          <div class="field"><label>City / Hotel</label><input value="Bali, Indonesia"></div>
-          <div class="field"><label>Check-in</label><input type="date" value="2026-07-12"></div>
-          <div class="field"><label>Check-out</label><input type="date" value="2026-07-19"></div>
-          <div class="field"><label>Guests</label><select><option>2 Adults · 1 Room</option></select></div>
-          <button class="btn btn-primary">Search Hotels</button>
-        </div>
+        <form class="search-fields" id="hotel-search">
+          <div class="field"><label>City code</label><input id="h-city" list="cities" value="GOI" placeholder="GOI" required></div>
+          <div class="field"><label>Check-in</label><input id="h-in" type="date" required></div>
+          <div class="field"><label>Check-out</label><input id="h-out" type="date" required></div>
+          <div class="field"><label>Guests</label>
+            <select id="h-adults"><option value="1">1 Adult</option><option value="2" selected>2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select>
+          </div>
+          <button class="btn btn-primary" type="submit">Search hotels</button>
+          <datalist id="cities"></datalist>
+        </form>
       </div>
     </div>
   </section>
@@ -85,91 +88,10 @@
 
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px">
-            <strong>248 properties in Bali</strong>
-            <select style="padding:10px 14px;border-radius:10px;border:1px solid var(--ink-100)"><option>Sort: Recommended</option><option>Price: Low → High</option><option>Rating</option></select>
+            <strong id="htl-summary">Search to see live hotels</strong>
+            <select id="htl-sort" style="padding:10px 14px;border-radius:10px;border:1px solid var(--ink-100)"><option value="price">Price: Low → High</option><option value="rating">Rating</option></select>
           </div>
-
-          <article class="result-card hotel-card">
-            <div class="photo bg-bali"></div>
-            <div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">★★★★★</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">5★</span></div>
-              <h3>The Ritz-Carlton Bali</h3>
-              <span style="color:var(--ink-500);font-size:.9rem">📍 Nusa Dua · 0.3 km from beach</span>
-              <div class="amenities"><span>🏊 Pool</span><span>🍳 Breakfast</span><span>💆 Spa</span><span>🌊 Beachfront</span></div>
-              <p style="font-size:.85rem;margin-top:10px;color:var(--ink-500)">"Stunning beachfront resort with world-class spa. Perfect for honeymoons." — <strong style="color:var(--teal-dark)">9.6 Exceptional</strong> · 1,247 reviews</p>
-            </div>
-            <div class="fare">
-              <span style="color:var(--ink-500);text-decoration:line-through;font-size:.85rem"><span data-price-inr="22000">₹22,000</span></span>
-              <strong><span data-price-inr="16500">₹16,500</span></strong>
-              <span class="per">per night · incl. taxes</span>
-              <button class="btn btn-primary btn-sm">Reserve</button>
-            </div>
-          </article>
-
-          <article class="result-card hotel-card">
-            <div class="photo bg-maldives"></div>
-            <div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">★★★★</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">4★</span></div>
-              <h3>Padma Resort Ubud</h3>
-              <span style="color:var(--ink-500);font-size:.9rem">📍 Ubud · Surrounded by rice terraces</span>
-              <div class="amenities"><span>🏊 Infinity Pool</span><span>🌾 Garden</span><span>🍳 Breakfast</span><span>🧘 Yoga</span></div>
-              <p style="font-size:.85rem;margin-top:10px;color:var(--ink-500)">"Most beautiful views ever. Pool perched over the jungle." — <strong style="color:var(--teal-dark)">9.4 Excellent</strong> · 980 reviews</p>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="12800">₹12,800</span></strong>
-              <span class="per">per night · incl. taxes</span>
-              <button class="btn btn-primary btn-sm">Reserve</button>
-            </div>
-          </article>
-
-          <article class="result-card hotel-card">
-            <div class="photo bg-thailand"></div>
-            <div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">★★★★</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">4★</span></div>
-              <h3>The Mulia Seminyak</h3>
-              <span style="color:var(--ink-500);font-size:.9rem">📍 Seminyak · 5 min from beach</span>
-              <div class="amenities"><span>🏊 Pool</span><span>🍹 Bar</span><span>🌊 Beach</span><span>💼 Gym</span></div>
-              <p style="font-size:.85rem;margin-top:10px;color:var(--ink-500)">"Great location, amazing rooftop bar." — <strong style="color:var(--teal-dark)">8.9 Very Good</strong> · 645 reviews</p>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="9999">₹9,999</span></strong>
-              <span class="per">per night · incl. taxes</span>
-              <button class="btn btn-primary btn-sm">Reserve</button>
-            </div>
-          </article>
-
-          <article class="result-card hotel-card">
-            <div class="photo bg-singapore"></div>
-            <div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">★★★</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">3★</span></div>
-              <h3>Aston Kuta Hotel & Residence</h3>
-              <span style="color:var(--ink-500);font-size:.9rem">📍 Kuta · 8 min walk to beach</span>
-              <div class="amenities"><span>🏊 Pool</span><span>🍳 Breakfast</span><span>🚗 Free Parking</span></div>
-              <p style="font-size:.85rem;margin-top:10px;color:var(--ink-500)">"Great value for money. Friendly staff." — <strong style="color:var(--teal-dark)">8.4 Very Good</strong> · 412 reviews</p>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="5499">₹5,499</span></strong>
-              <span class="per">per night · incl. taxes</span>
-              <button class="btn btn-primary btn-sm">Reserve</button>
-            </div>
-          </article>
-
-          <article class="result-card hotel-card">
-            <div class="photo bg-vietnam"></div>
-            <div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">★★★★★</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">5★</span></div>
-              <h3>Four Seasons Resort Bali at Sayan</h3>
-              <span style="color:var(--ink-500);font-size:.9rem">📍 Ubud · Private river valley</span>
-              <div class="amenities"><span>🏊 Private Pool</span><span>💆 Spa</span><span>🌊 River View</span><span>🍽 Fine Dining</span></div>
-              <p style="font-size:.85rem;margin-top:10px;color:var(--ink-500)">"Once in a lifetime experience. Worth every penny." — <strong style="color:var(--teal-dark)">9.8 Exceptional</strong> · 320 reviews</p>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="38000">₹38,000</span></strong>
-              <span class="per">per night · incl. taxes</span>
-              <button class="btn btn-primary btn-sm">Reserve</button>
-            </div>
-          </article>
-
+          <div id="htl-results"></div>
         </div>
       </div>
     </div>
@@ -180,5 +102,78 @@
   <div class="floating"><a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a></div>
 
   <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    const $ = s => document.querySelector(s);
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    const inr = n => '₹' + Number(n || 0).toLocaleString('en-IN');
+    const BGS = ['bg-bali','bg-maldives','bg-thailand','bg-singapore','bg-vietnam','bg-goa','bg-kerala'];
+    let results = [];
+
+    const today = new Date().toISOString().slice(0, 10);
+    $('#h-in').value = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
+    $('#h-out').value = new Date(Date.now() + 10 * 864e5).toISOString().slice(0, 10);
+    $('#h-in').min = today; $('#h-out').min = today;
+
+    let acTimer;
+    $('#h-city').addEventListener('input', e => {
+      clearTimeout(acTimer);
+      acTimer = setTimeout(async () => {
+        const v = e.target.value;
+        if (!v || v.length < 2) return;
+        try {
+          const list = await (await fetch('/api/locations?keyword=' + encodeURIComponent(v))).json();
+          $('#cities').innerHTML = list.map(l => `<option value="${l.iata}">${esc(l.city)} (${l.iata})</option>`).join('');
+        } catch {}
+      }, 200);
+    });
+
+    function render() {
+      const sort = $('#htl-sort').value;
+      const sorted = [...results].sort((a, b) => sort === 'rating'
+        ? (Number(b.rating) || 0) - (Number(a.rating) || 0)
+        : (a.price?.amount || 0) - (b.price?.amount || 0));
+      $('#htl-results').innerHTML = sorted.map((h, i) => `
+        <article class="result-card hotel-card">
+          <div class="photo ${BGS[i % BGS.length]}"></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">${'★'.repeat(Number(h.rating) || 3)}</span><span style="font-size:.78rem;color:var(--ink-500);background:var(--bg-soft);padding:3px 8px;border-radius:6px">${esc(h.rating || '3')}★</span></div>
+            <h3>${esc(h.name)}</h3>
+            <span style="color:var(--ink-500);font-size:.9rem">📍 ${esc(h.cityCode || '')} · ${esc(h.room || 'Room')}</span>
+            <div class="amenities"><span>🛏 ${esc(h.room || 'Room')}</span><span>📅 ${esc(h.checkIn || '')} → ${esc(h.checkOut || '')}</span></div>
+          </div>
+          <div class="fare">
+            <strong>${h.price ? inr(h.price.amount) : '—'}</strong>
+            <span class="per">total stay · incl. taxes</span>
+            <button class="btn btn-primary btn-sm" data-book="${i}">Reserve</button>
+          </div>
+        </article>`).join('');
+      $('#htl-results').querySelectorAll('[data-book]').forEach(b => b.addEventListener('click', () => book(sorted[+b.dataset.book])));
+    }
+
+    function book(offer) {
+      sessionStorage.setItem('gtm_checkout', JSON.stringify({ type: 'hotel', offer }));
+      location.href = 'checkout.html';
+    }
+
+    $('#hotel-search').addEventListener('submit', async e => {
+      e.preventDefault();
+      const body = { cityCode: $('#h-city').value.trim().toUpperCase(), checkIn: $('#h-in').value, checkOut: $('#h-out').value, adults: Number($('#h-adults').value) };
+      $('#htl-summary').textContent = 'Searching…';
+      $('#htl-results').innerHTML = '';
+      try {
+        const r = await (await fetch('/api/hotels/search', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })).json();
+        results = r.data || [];
+        $('#htl-summary').textContent = `${results.length} hotels · ${body.cityCode}` + (r.mode === 'demo' ? '  (demo data — add Amadeus keys for live rates)' : '');
+        render();
+      } catch (err) {
+        $('#htl-summary').textContent = 'Search failed: ' + err.message;
+      }
+    });
+    $('#htl-sort').addEventListener('change', render);
+
+    $('#hotel-search').dispatchEvent(new Event('submit'));
+  })();
+  </script>
 </body>
 </html>

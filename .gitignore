@@ -2,3 +2,10 @@
 node_modules/
 .vscode/
 *.log
+
+# local config & data — never commit secrets or the database
+.env
+data.db
+data.db-journal
+data.db-wal
+data.db-shm

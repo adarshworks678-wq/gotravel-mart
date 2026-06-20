@@ -40,19 +40,16 @@
         <div class="search-tabs">
           <button class="active">Flights</button>
         </div>
-        <div class="trip-options">
-          <label><input type="radio" name="trip" checked> Round Trip</label>
-          <label><input type="radio" name="trip"> One Way</label>
-          <label><input type="radio" name="trip"> Multi City</label>
-        </div>
-        <div class="search-fields">
-          <div class="field"><label>From</label><input value="DEL · New Delhi"></div>
-          <div class="field"><label>To</label><input value="DPS · Bali"></div>
-          <div class="field"><label>Departure</label><input type="date" value="2026-07-12"></div>
-          <div class="field"><label>Return</label><input type="date" value="2026-07-19"></div>
-          <div class="field"><label>Travellers</label><select><option>2 Adults · Economy</option></select></div>
-          <button class="btn btn-primary">Search</button>
-        </div>
+        <form class="search-fields" id="flight-search">
+          <div class="field"><label>From (airport code)</label><input id="f-from" list="airports" value="DEL" placeholder="DEL" required></div>
+          <div class="field"><label>To (airport code)</label><input id="f-to" list="airports" value="GOI" placeholder="GOI" required></div>
+          <div class="field"><label>Departure</label><input id="f-date" type="date" required></div>
+          <div class="field"><label>Travellers</label>
+            <select id="f-adults"><option value="1">1 Adult</option><option value="2" selected>2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option></select>
+          </div>
+          <button class="btn btn-primary" type="submit">Search flights</button>
+          <datalist id="airports"></datalist>
+        </form>
       </div>
     </div>
   </section>
@@ -93,95 +90,10 @@
 
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px">
-            <strong>64 flights found · DEL → DPS</strong>
-            <select style="padding:10px 14px;border-radius:10px;border:1px solid var(--ink-100)"><option>Sort: Cheapest</option><option>Fastest</option><option>Best</option></select>
+            <strong id="flt-summary">Search to see live flights</strong>
+            <select id="flt-sort" style="padding:10px 14px;border-radius:10px;border:1px solid var(--ink-100)"><option value="price">Sort: Cheapest</option><option value="duration">Fastest</option></select>
           </div>
-
-          <article class="result-card flight-card">
-            <div class="airline"><div class="badge">SQ</div><span style="font-size:.8rem;color:var(--ink-500)">Singapore Airlines</span></div>
-            <div>
-              <div class="flight-route">
-                <div><div class="time">14:30</div><div class="code">DEL · New Delhi</div></div>
-                <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">9h 45m · 1 stop</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">via SIN</div></div>
-                <div><div class="time">02:15<span style="font-size:.7rem;color:var(--accent)"> +1</span></div><div class="code">DPS · Bali</div></div>
-              </div>
-              <div style="margin-top:10px;font-size:.82rem;color:var(--ink-500);display:flex;gap:14px;flex-wrap:wrap"><span>🍴 Meal incl.</span><span>💼 23kg baggage</span><span>🪑 Selectable seats</span></div>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="48999">₹48,999</span></strong>
-              <span>per adult</span>
-              <button class="btn btn-primary btn-sm">Book Now</button>
-            </div>
-          </article>
-
-          <article class="result-card flight-card">
-            <div class="airline"><div class="badge" style="background:linear-gradient(135deg,#1f47b3,#0d2c8a)">EK</div><span style="font-size:.8rem;color:var(--ink-500)">Emirates</span></div>
-            <div>
-              <div class="flight-route">
-                <div><div class="time">04:10</div><div class="code">DEL</div></div>
-                <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">12h 20m · 1 stop</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">via DXB</div></div>
-                <div><div class="time">19:30</div><div class="code">DPS</div></div>
-              </div>
-              <div style="margin-top:10px;font-size:.82rem;color:var(--ink-500);display:flex;gap:14px;flex-wrap:wrap"><span>🍴 Meal</span><span>💼 30kg</span><span>📺 Live TV</span></div>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="54999">₹54,999</span></strong>
-              <span>per adult</span>
-              <button class="btn btn-primary btn-sm">Book Now</button>
-            </div>
-          </article>
-
-          <article class="result-card flight-card">
-            <div class="airline"><div class="badge" style="background:linear-gradient(135deg,#0f47a1,#08316b)">AI</div><span style="font-size:.8rem;color:var(--ink-500)">Air India</span></div>
-            <div>
-              <div class="flight-route">
-                <div><div class="time">22:55</div><div class="code">DEL</div></div>
-                <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">11h 30m · 1 stop</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">via BKK</div></div>
-                <div><div class="time">12:25<span style="font-size:.7rem;color:var(--accent)"> +1</span></div><div class="code">DPS</div></div>
-              </div>
-              <div style="margin-top:10px;font-size:.82rem;color:var(--ink-500);display:flex;gap:14px;flex-wrap:wrap"><span>🍴 Meal</span><span>💼 25kg</span><span>🇮🇳 Indian carrier</span></div>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="42500">₹42,500</span></strong>
-              <span>per adult</span>
-              <button class="btn btn-primary btn-sm">Book Now</button>
-            </div>
-          </article>
-
-          <article class="result-card flight-card">
-            <div class="airline"><div class="badge" style="background:linear-gradient(135deg,#2c3e96,#10215f)">6E</div><span style="font-size:.8rem;color:var(--ink-500)">IndiGo</span></div>
-            <div>
-              <div class="flight-route">
-                <div><div class="time">07:20</div><div class="code">DEL</div></div>
-                <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">13h 45m · 1 stop</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">via KUL</div></div>
-                <div><div class="time">23:35</div><div class="code">DPS</div></div>
-              </div>
-              <div style="margin-top:10px;font-size:.82rem;color:var(--ink-500);display:flex;gap:14px;flex-wrap:wrap"><span>🍴 Buy meals</span><span>💼 20kg</span></div>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="38900">₹38,900</span></strong>
-              <span>per adult</span>
-              <button class="btn btn-primary btn-sm">Book Now</button>
-            </div>
-          </article>
-
-          <article class="result-card flight-card">
-            <div class="airline"><div class="badge" style="background:linear-gradient(135deg,#b3294a,#7a1b32)">TG</div><span style="font-size:.8rem;color:var(--ink-500)">Thai Airways</span></div>
-            <div>
-              <div class="flight-route">
-                <div><div class="time">23:55</div><div class="code">DEL</div></div>
-                <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">10h 15m · 1 stop</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">via BKK</div></div>
-                <div><div class="time">14:40<span style="font-size:.7rem;color:var(--accent)"> +1</span></div><div class="code">DPS</div></div>
-              </div>
-              <div style="margin-top:10px;font-size:.82rem;color:var(--ink-500);display:flex;gap:14px;flex-wrap:wrap"><span>🍴 Premium meal</span><span>💼 30kg</span></div>
-            </div>
-            <div class="fare">
-              <strong><span data-price-inr="51200">₹51,200</span></strong>
-              <span>per adult</span>
-              <button class="btn btn-primary btn-sm">Book Now</button>
-            </div>
-          </article>
-
+          <div id="flt-results"></div>
         </div>
       </div>
     </div>
@@ -192,5 +104,86 @@
   <div class="floating"><a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a></div>
 
   <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    const $ = s => document.querySelector(s);
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    const inr = n => '₹' + Number(n || 0).toLocaleString('en-IN');
+    const hhmm = iso => (iso || '').slice(11, 16);
+    let results = [];
+
+    // default date = 7 days out
+    $('#f-date').value = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
+    $('#f-date').min = new Date().toISOString().slice(0, 10);
+
+    // airport autocomplete
+    let acTimer;
+    function autocomplete(val) {
+      clearTimeout(acTimer);
+      acTimer = setTimeout(async () => {
+        if (!val || val.length < 2) return;
+        try {
+          const list = await (await fetch('/api/locations?keyword=' + encodeURIComponent(val))).json();
+          $('#airports').innerHTML = list.map(l => `<option value="${l.iata}">${esc(l.city)} (${l.iata})</option>`).join('');
+        } catch {}
+      }, 200);
+    }
+    $('#f-from').addEventListener('input', e => autocomplete(e.target.value));
+    $('#f-to').addEventListener('input', e => autocomplete(e.target.value));
+
+    function render() {
+      const sort = $('#flt-sort').value;
+      const sorted = [...results].sort((a, b) => sort === 'duration'
+        ? (a.segments.reduce((s, x) => s, 0), a.duration.localeCompare(b.duration))
+        : a.price.amount - b.price.amount);
+      $('#flt-results').innerHTML = sorted.map((f, i) => `
+        <article class="result-card flight-card">
+          <div class="airline"><div class="badge">${esc(f.airlineCode)}</div><span style="font-size:.8rem;color:var(--ink-500)">${esc(f.airline)}</span></div>
+          <div>
+            <div class="flight-route">
+              <div><div class="time">${hhmm(f.departAt)}</div><div class="code">${esc(f.from)}</div></div>
+              <div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">${esc(f.duration)} · ${f.stops ? f.stops + ' stop' : 'non-stop'}</div><div class="line"></div><div style="font-size:.78rem;text-align:center;color:var(--ink-500)">${esc(f.flightNumber)}</div></div>
+              <div><div class="time">${hhmm(f.arriveAt)}</div><div class="code">${esc(f.to)}</div></div>
+            </div>
+          </div>
+          <div class="fare">
+            <strong>${inr(f.price.amount)}</strong>
+            <span>total</span>
+            <button class="btn btn-primary btn-sm" data-book="${i}">Book Now</button>
+          </div>
+        </article>`).join('');
+      $('#flt-results').querySelectorAll('[data-book]').forEach(b => b.addEventListener('click', () => book(sorted[+b.dataset.book])));
+    }
+
+    function book(offer) {
+      sessionStorage.setItem('gtm_checkout', JSON.stringify({ type: 'flight', offer }));
+      location.href = 'checkout.html';
+    }
+
+    $('#flight-search').addEventListener('submit', async e => {
+      e.preventDefault();
+      const body = {
+        origin: $('#f-from').value.trim().toUpperCase(),
+        destination: $('#f-to').value.trim().toUpperCase(),
+        date: $('#f-date').value,
+        adults: Number($('#f-adults').value),
+      };
+      $('#flt-summary').textContent = 'Searching…';
+      $('#flt-results').innerHTML = '';
+      try {
+        const r = await (await fetch('/api/flights/search', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })).json();
+        results = r.data || [];
+        $('#flt-summary').textContent = `${results.length} flights · ${body.origin} → ${body.destination}` + (r.mode === 'demo' ? '  (demo data — add Amadeus keys for live fares)' : '');
+        render();
+      } catch (err) {
+        $('#flt-summary').textContent = 'Search failed: ' + err.message;
+      }
+    });
+    $('#flt-sort').addEventListener('change', render);
+
+    // auto-run an initial search
+    $('#flight-search').dispatchEvent(new Event('submit'));
+  })();
+  </script>
 </body>
 </html>

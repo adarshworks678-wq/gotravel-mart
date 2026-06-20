@@ -124,6 +124,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* -------- Route package / destination cards to the enquiry page -------- */
+  (function wireEnquiryLinks() {
+    // Build the path to inquiry.html relative to the current page
+    const base = location.pathname.includes('/pages/') ? '' : 'pages/';
+    const bgOf = el => {
+      const m = el && (el.className || '').match(/bg-[a-z]+/);
+      return m ? m[0] : 'bg-bali';
+    };
+    const linkFor = card => {
+      const title = (card.querySelector('h3')?.textContent || 'Holiday Package').trim();
+      const place = (card.querySelector('.place, .meta')?.textContent || '').trim();
+      const priceEl = card.querySelector('.now [data-price-inr]') || card.querySelector('[data-price-inr]');
+      const price = priceEl ? priceEl.dataset.priceInr : '42999';
+      const featEl = card.querySelector('.features span');
+      const dur = featEl ? featEl.textContent.replace(/^[^\w]+/, '').trim() : '';
+      const params = new URLSearchParams({ pkg: title, place, price, img: bgOf(card.querySelector('.photo')) });
+      if (dur) params.set('dur', dur);
+      return base + 'inquiry.html?' + params.toString();
+    };
+
+    document.querySelectorAll('.pkg-card, .dest-card').forEach(card => {
+      const href = linkFor(card);
+      // point the card's own CTA (Book Now / View / Quick view) at the enquiry page
+      const cta = card.querySelector('a.btn, a.quick');
+      if (cta) cta.setAttribute('href', href);
+      // make the whole card clickable (but let links, buttons & wishlist behave normally)
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', e => {
+        if (e.target.closest('a, button')) return;
+        location.href = href;
+      });
+    });
+  })();
+
   /* -------- Forms — friendly demo handler -------- */
   document.querySelectorAll('form[data-demo]').forEach(form => {
     form.addEventListener('submit', e => {

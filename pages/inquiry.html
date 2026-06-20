@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquire & Book Assistance — GoTravel Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="row"><span>📞 +91 98765 43210</span><span>✉ hello@gotravelmart.com</span></div>
+      <div class="row">
+        <select data-currency><option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="EUR">€ EUR</option><option value="GBP">£ GBP</option><option value="AED">د.إ AED</option></select>
+        <a href="leads.html">My Bookings</a><a href="contact.html">Help</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="../index.html" class="brand"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>GoTravel <span style="color:var(--teal-dark)">Mart</span></a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="../index.html#packages">Tour Packages</a>
+        <a href="flights.html">Flights</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" data-toggle-dark><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <a class="btn btn-primary btn-sm" href="tel:+919876543210">Call Now</a>
+        <button class="icon-btn mobile-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section style="padding: 30px 0 80px">
+    <div class="container">
+      <div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="destinations.html">Packages</a> / Enquiry</div>
+
+      <!-- ===== Enquiry view ===== -->
+      <div id="enquiry-view">
+        <div style="margin-bottom:18px">
+          <span class="eyebrow">No account needed</span>
+          <h1 style="font-size:2.1rem;margin:6px 0 4px" id="page-title">Enquire about this package</h1>
+          <p style="color:var(--ink-500);max-width:640px">Share a few details and our travel expert will reach out. Prefer guided help? Book a free online appointment and we'll assist you live through booking &amp; payment.</p>
+        </div>
+
+        <div class="detail-grid">
+          <!-- Left: form -->
+          <div class="form-card">
+            <form class="inq-form" id="inquiry-form" novalidate>
+              <div class="form-section-title">Your details</div>
+              <div class="grid2">
+                <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" type="text" placeholder="e.g. Adarsh Sharma" required /></div>
+                <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" name="phone" type="tel" placeholder="+91 98765 43210" required /></div>
+              </div>
+              <div class="grid2">
+                <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" placeholder="you@email.com" required /></div>
+                <div class="field"><label for="f-city">City of departure</label><input id="f-city" name="city" type="text" placeholder="e.g. Mumbai" /></div>
+              </div>
+
+              <div class="form-section-title" style="margin-top:8px">Trip details</div>
+              <div class="grid2">
+                <div class="field"><label for="f-date">Preferred travel date</label><input id="f-date" name="travelDate" type="date" /></div>
+                <div class="field"><label for="f-travellers">Travellers</label>
+                  <select id="f-travellers" name="travellers">
+                    <option>1 Adult</option>
+                    <option selected>2 Adults</option>
+                    <option>2 Adults, 1 Child</option>
+                    <option>2 Adults, 2 Children</option>
+                    <option>Family of 4+</option>
+                    <option>Group (5+)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid2">
+                <div class="field"><label for="f-budget">Budget per person</label>
+                  <select id="f-budget" name="budget">
+                    <option value="">No preference</option>
+                    <option>Under ₹25,000</option>
+                    <option>₹25,000 – ₹50,000</option>
+                    <option>₹50,000 – ₹1,00,000</option>
+                    <option>Above ₹1,00,000</option>
+                  </select>
+                </div>
+                <div class="field"><label for="f-hear">How did you hear about us?</label>
+                  <select id="f-hear" name="source">
+                    <option value="">Select</option>
+                    <option>Google search</option>
+                    <option>Instagram / Facebook</option>
+                    <option>Friend / family</option>
+                    <option>Returning customer</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field"><label for="f-msg">Special requests</label><textarea id="f-msg" name="message" placeholder="Anything we should know? Anniversary, dietary needs, preferred hotels…"></textarea></div>
+
+              <!-- Appointment -->
+              <div class="form-section-title" style="margin-top:8px">Booking &amp; payment assistance</div>
+              <div class="appt-box">
+                <label class="switch-row">
+                  <input type="checkbox" id="appt-toggle" checked />
+                  <span class="switch"></span>
+                  <span>📅 Book a free online appointment — get live help through booking &amp; payment</span>
+                </label>
+
+                <div class="appt-fields" id="appt-fields">
+                  <div class="grid2">
+                    <div class="field"><label for="a-date">Preferred date</label><input id="a-date" name="apptDate" type="date" /></div>
+                    <div class="field"><label for="a-mode">Meeting mode</label>
+                      <select id="a-mode" name="apptMode">
+                        <option>Video call (Google Meet)</option>
+                        <option>Phone call</option>
+                        <option>WhatsApp call</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Preferred time slot</label>
+                    <div class="slot-chips" id="slot-chips">
+                      <span class="slot-chip" data-slot="10:00 AM">10:00 AM</span>
+                      <span class="slot-chip" data-slot="12:00 PM">12:00 PM</span>
+                      <span class="slot-chip" data-slot="2:00 PM">2:00 PM</span>
+                      <span class="slot-chip" data-slot="4:00 PM">4:00 PM</span>
+                      <span class="slot-chip" data-slot="6:00 PM">6:00 PM</span>
+                      <span class="slot-chip" data-slot="8:00 PM">8:00 PM</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p id="form-error" style="display:none;color:#c0392b;font-size:.88rem;font-weight:600;margin:0"></p>
+              <button type="submit" class="btn btn-primary" style="justify-content:center;padding:15px;font-size:1rem">Submit enquiry →</button>
+              <p style="font-size:.78rem;color:var(--ink-500);text-align:center;margin:0">🔒 No login required. Your details are kept private and used only to assist your trip.</p>
+            </form>
+          </div>
+
+          <!-- Right: package summary -->
+          <aside class="booking-card summary-card">
+            <div class="thumb" id="sum-thumb"></div>
+            <h3 style="margin:0 0 4px;font-size:1.25rem" id="sum-name">Holiday Package</h3>
+            <div style="color:var(--ink-500);font-size:.9rem;margin-bottom:14px" id="sum-place">📍 GoTravel Mart</div>
+
+            <div class="summary-row"><span class="lbl">Starting price</span><span class="val"><span id="sum-price" data-price-inr="42999">₹42,999</span> <span style="color:var(--ink-500);font-weight:400">/person</span></span></div>
+            <div class="summary-row"><span class="lbl">Duration</span><span class="val" id="sum-duration">As per itinerary</span></div>
+            <div class="summary-row"><span class="lbl">Expert callback</span><span class="val">Within 2 hours</span></div>
+
+            <div class="trust-list">
+              <span>✓ Free cancellation up to 30 days before</span>
+              <span>✓ Pay 20% to confirm, rest later</span>
+              <span>✓ EMI options available</span>
+              <span>✓ 24×7 GoTravel Mart support</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- ===== Success view ===== -->
+      <div id="success-view" style="display:none">
+        <div class="success-box">
+          <div class="check">✓</div>
+          <h1 style="margin:0 0 8px">Enquiry received!</h1>
+          <p style="color:var(--ink-500);margin:0">Thank you, <strong id="ok-name">traveller</strong>. Your enquiry for <strong id="ok-pkg">your package</strong> has been saved.</p>
+          <div class="ref" id="ok-ref">GTM-0000</div>
+          <p id="ok-appt" style="color:var(--ink-700);margin:0 0 4px"></p>
+          <p style="color:var(--ink-500);font-size:.9rem">Our travel expert will contact you on the number you provided. A copy is saved under <a href="leads.html">My Bookings</a>.</p>
+          <div class="actions">
+            <a href="../index.html" class="btn btn-outline">Back to home</a>
+            <a href="leads.html" class="btn btn-primary">View my enquiries →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" style="margin-top:40px">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0">
+        <span>© 2026 GoTravel Mart Pvt. Ltd. · Explore More. Travel Better.</span>
+        <div><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a><a href="leads.html">CRM</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+  /* ---- Inquiry page logic (CRM = localStorage prototype) ---- */
+  (function () {
+    const qs = new URLSearchParams(location.search);
+    const pkg = {
+      id: qs.get('id') || '',
+      name: qs.get('pkg') || 'Holiday Package',
+      place: qs.get('place') || '',
+      price: qs.get('price') || '42999',
+      img: qs.get('img') || 'bg-bali',
+      duration: qs.get('dur') || ''
+    };
+
+    // Hydrate the summary card from the clicked package
+    document.getElementById('page-title').textContent = 'Enquire — ' + pkg.name;
+    document.getElementById('sum-name').textContent = pkg.name;
+    document.getElementById('sum-place').textContent = pkg.place ? ('📍 ' + pkg.place) : '📍 GoTravel Mart';
+    const thumb = document.getElementById('sum-thumb');
+    thumb.classList.add(pkg.img);
+    const priceEl = document.getElementById('sum-price');
+    priceEl.dataset.priceInr = pkg.price;
+    priceEl.textContent = '₹' + Number(pkg.price).toLocaleString('en-IN');
+    document.getElementById('sum-duration').textContent = pkg.duration || 'As per itinerary';
+    // re-apply currency if user had picked a non-INR currency
+    const cur = localStorage.getItem('gtm-currency');
+    if (cur && cur !== 'INR') {
+      const rates = { USD: 0.012, EUR: 0.011, GBP: 0.0095, AED: 0.044 };
+      const sym = { USD: '$', EUR: '€', GBP: '£', AED: 'AED ' };
+      if (rates[cur]) priceEl.textContent = sym[cur] + Math.round(pkg.price * rates[cur]).toLocaleString('en-IN');
+    }
+
+    // Appointment toggle show/hide
+    const toggle = document.getElementById('appt-toggle');
+    const apptFields = document.getElementById('appt-fields');
+    const syncAppt = () => apptFields.classList.toggle('hidden', !toggle.checked);
+    toggle.addEventListener('change', syncAppt);
+    syncAppt();
+
+    // Slot chips (single select)
+    let slot = '';
+    document.querySelectorAll('#slot-chips .slot-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#slot-chips .slot-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        slot = chip.dataset.slot;
+      });
+    });
+
+    // Sensible default dates (tomorrow)
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+    document.getElementById('f-date').min = tomorrow;
+    const aDate = document.getElementById('a-date');
+    aDate.min = tomorrow; aDate.value = tomorrow;
+
+    const form = document.getElementById('inquiry-form');
+    const errEl = document.getElementById('form-error');
+    const showErr = msg => { errEl.textContent = msg; errEl.style.display = 'block'; };
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl.style.display = 'none';
+
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const email = form.email.value.trim();
+
+      if (!name || !phone || !email) { showErr('Please fill in your name, phone and email.'); return; }
+      if (!/^\S+@\S+\.\S+$/.test(email)) { showErr('Please enter a valid email address.'); return; }
+      if (toggle.checked && !slot) { showErr('Please pick a preferred time slot for your appointment.'); return; }
+
+      const appointment = toggle.checked
+        ? { requested: true, date: aDate.value, slot, mode: form['apptMode'].value }
+        : { requested: false };
+
+      const payload = {
+        name, phone, email,
+        city: form.city.value.trim(),
+        package: pkg.name,
+        package_id: pkg.id ? Number(pkg.id) : null,
+        place: pkg.place,
+        price_inr: Number(pkg.price),
+        travelDate: form.travelDate.value,
+        travellers: form.travellers.value,
+        budget: form.budget.value,
+        source: form.source.value,
+        message: form.message.value.trim(),
+        appointment
+      };
+
+      const orig = submitBtn.innerHTML;
+      submitBtn.disabled = true; submitBtn.innerHTML = 'Submitting…';
+
+      let ref = 'GTM-' + Date.now().toString().slice(-6); // fallback if offline
+      try {
+        const r = await fetch('/api/enquiries', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await r.json();
+        if (!r.ok) throw new Error(data.error || 'Could not submit');
+        ref = data.ref || ref;
+      } catch (err) {
+        // Backend unreachable (e.g. opened via file://) — keep a local copy and continue.
+        showErr('');
+        console.warn('Enquiry POST failed, saved locally only:', err.message);
+      } finally {
+        submitBtn.disabled = false; submitBtn.innerHTML = orig;
+      }
+
+      // Always keep a copy on this device for the customer's "My Bookings" view.
+      const KEY = 'gtm_leads';
+      let leads = [];
+      try { leads = JSON.parse(localStorage.getItem(KEY)) || []; } catch (_) {}
+      leads.unshift({ ref, ...payload, status: 'New', createdAt: new Date().toISOString() });
+      localStorage.setItem(KEY, JSON.stringify(leads));
+
+      // Success screen
+      document.getElementById('ok-name').textContent = name;
+      document.getElementById('ok-pkg').textContent = pkg.name;
+      document.getElementById('ok-ref').textContent = 'Reference: ' + ref;
+      const apptMsg = document.getElementById('ok-appt');
+      apptMsg.innerHTML = appointment.requested
+        ? '📅 Your assistance call is booked for <strong>' + appointment.date + ' at ' + slot + '</strong> via ' + appointment.mode + '. A WhatsApp confirmation is on its way.'
+        : '';
+      document.getElementById('enquiry-view').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Render Blueprint — one-click deploy.
+# On render.com:  New +  →  Blueprint  →  pick the adarshworks678-wq/gotravel-mart repo.
+# Render auto-deploys on every push to main (that's the CD).
+#
+# Free plan note: the filesystem is ephemeral, so data.db resets on each deploy
+# (it re-seeds the 8 sample packages) — fine for a prototype. For persistence,
+# switch to a paid plan, add a disk, and set DB_PATH to a path on that disk.
+services:
+  - type: web
+    name: gotravel-mart
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      # Secrets — set these in the Render dashboard (left blank = demo/log-only mode)
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: CRM_API_URL
+        sync: false
+      - key: CRM_API_KEY
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: AMADEUS_CLIENT_ID
+        sync: false
+      - key: AMADEUS_CLIENT_SECRET
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false

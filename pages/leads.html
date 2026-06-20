@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Enquiries / CRM — GoTravel Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="row"><span>📞 +91 98765 43210</span><span>✉ hello@gotravelmart.com</span></div>
+      <div class="row">
+        <select data-currency><option value="INR">₹ INR</option><option value="USD">$ USD</option><option value="EUR">€ EUR</option><option value="GBP">£ GBP</option><option value="AED">د.إ AED</option></select>
+        <a href="leads.html">My Bookings</a><a href="contact.html">Help</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="../index.html" class="brand"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-8-8 20-2-8-10-4z"/></svg></span>GoTravel <span style="color:var(--teal-dark)">Mart</span></a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="../index.html#packages">Tour Packages</a>
+        <a href="flights.html">Flights</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" data-toggle-dark><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <a class="btn btn-primary btn-sm" href="destinations.html">Browse packages</a>
+        <button class="icon-btn mobile-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="../index.html">Home</a> / My Enquiries</div>
+      <h1>My Enquiries &amp; Appointments</h1>
+      <p>Every enquiry you submit is captured here — this is the lightweight CRM view the GoTravel Mart team uses to follow up.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:30px;padding-bottom:80px">
+    <div class="container">
+
+      <div class="crm-bar">
+        <div class="crm-stats">
+          <div class="crm-stat"><strong id="stat-total">0</strong><span>Total enquiries</span></div>
+          <div class="crm-stat"><strong id="stat-appt">0</strong><span>Appointments booked</span></div>
+          <div class="crm-stat"><strong id="stat-new">0</strong><span>Awaiting callback</span></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-outline btn-sm" id="btn-export">⬇ Export CSV</button>
+          <button class="btn btn-outline btn-sm" id="btn-clear">🗑 Clear all</button>
+        </div>
+      </div>
+
+      <div id="table-wrap" class="lead-table-wrap" style="display:none">
+        <table class="lead-table">
+          <thead>
+            <tr>
+              <th>Ref</th><th>Name</th><th>Contact</th><th>Package</th>
+              <th>Travel date</th><th>Travellers</th><th>Appointment</th><th>Status</th><th>Submitted</th>
+            </tr>
+          </thead>
+          <tbody id="leads-body"></tbody>
+        </table>
+      </div>
+
+      <div id="empty" class="crm-empty">
+        <div style="font-size:2.6rem;margin-bottom:10px">📭</div>
+        <h3 style="margin:0 0 6px">No enquiries yet</h3>
+        <p>Pick a package and submit an enquiry — it'll show up here instantly.</p>
+        <a href="destinations.html" class="btn btn-primary" style="margin-top:12px">Browse packages →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" style="margin-top:40px">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0">
+        <span>© 2026 GoTravel Mart Pvt. Ltd. · Explore More. Travel Better.</span>
+        <div><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="wa" href="https://wa.me/919876543210"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.4.3-.7.1-1-.5-2-1.1-2.8-2-.2-.3-.1-.4 0-.6.2-.2.4-.5.6-.7.2-.2.2-.4.1-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+  /* ---- CRM leads view (reads localStorage) ---- */
+  (function () {
+    const KEY = 'gtm_leads';
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (_) { return []; } };
+    const fmtDate = iso => { if (!iso) return '—'; const d = new Date(iso); return isNaN(d) ? esc(iso) : d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }); };
+
+    function render() {
+      const leads = load();
+      document.getElementById('stat-total').textContent = leads.length;
+      document.getElementById('stat-appt').textContent = leads.filter(l => l.appointment && l.appointment.requested).length;
+      document.getElementById('stat-new').textContent = leads.filter(l => l.status === 'New').length;
+
+      const wrap = document.getElementById('table-wrap');
+      const empty = document.getElementById('empty');
+      const body = document.getElementById('leads-body');
+
+      if (!leads.length) { wrap.style.display = 'none'; empty.style.display = 'block'; return; }
+      wrap.style.display = 'block'; empty.style.display = 'none';
+
+      body.innerHTML = leads.map(l => {
+        const appt = l.appointment && l.appointment.requested
+          ? '<span class="badge-appt">' + esc(l.appointment.date) + ' · ' + esc(l.appointment.slot) + ' · ' + esc(l.appointment.mode) + '</span>'
+          : '<span style="color:var(--ink-500)">Callback only</span>';
+        return '<tr>' +
+          '<td><span class="ref">' + esc(l.ref) + '</span></td>' +
+          '<td>' + esc(l.name) + (l.city ? '<br><span style="color:var(--ink-500);font-size:.8rem">' + esc(l.city) + '</span>' : '') + '</td>' +
+          '<td>' + esc(l.phone) + '<br><span style="color:var(--ink-500);font-size:.8rem">' + esc(l.email) + '</span></td>' +
+          '<td>' + esc(l.package) + (l.place ? '<br><span style="color:var(--ink-500);font-size:.8rem">' + esc(l.place) + '</span>' : '') + '</td>' +
+          '<td>' + (l.travelDate ? esc(l.travelDate) : '—') + '</td>' +
+          '<td>' + esc(l.travellers) + '</td>' +
+          '<td>' + appt + '</td>' +
+          '<td><span class="badge-status">' + esc(l.status || 'New') + '</span></td>' +
+          '<td>' + fmtDate(l.createdAt) + '</td>' +
+          '</tr>';
+      }).join('');
+    }
+
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      if (!load().length) return;
+      if (confirm('Clear all saved enquiries? This cannot be undone.')) { localStorage.removeItem(KEY); render(); }
+    });
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      const leads = load();
+      if (!leads.length) { alert('No enquiries to export yet.'); return; }
+      const cols = ['ref', 'name', 'phone', 'email', 'city', 'package', 'place', 'priceInr', 'travelDate', 'travellers', 'budget', 'source', 'message', 'status', 'createdAt'];
+      const cell = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+      const rows = [cols.concat(['apptRequested', 'apptDate', 'apptSlot', 'apptMode']).join(',')];
+      leads.forEach(l => {
+        const base = cols.map(c => cell(l[c]));
+        const a = l.appointment || {};
+        base.push(cell(a.requested ? 'Yes' : 'No'), cell(a.date), cell(a.slot), cell(a.mode));
+        rows.push(base.join(','));
+      });
+      const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'gotravel-mart-leads.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

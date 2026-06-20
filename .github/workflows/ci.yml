@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install (no runtime deps — zero-dependency app)
+        run: npm install
+
+      - name: Syntax check all JavaScript
+        run: |
+          node --check server.js
+          for f in src/*.js js/*.js; do node --check "$f"; done
+
+      - name: Boot smoke test
+        env:
+          PORT: 3000
+        run: |
+          node --no-warnings server.js &
+          SERVER_PID=$!
+          sleep 3
+          echo "— homepage —"
+          curl -fsS -o /dev/null -w "GET / -> %{http_code}\n" http://localhost:3000/
+          echo "— packages API —"
+          curl -fsS http://localhost:3000/api/packages | head -c 300; echo
+          echo "— flight search —"
+          curl -fsS -X POST http://localhost:3000/api/flights/search \
+            -H 'content-type: application/json' \
+            -d '{"origin":"DEL","destination":"BOM","date":"2026-08-01","adults":1}' | head -c 200; echo
+          kill $SERVER_PID

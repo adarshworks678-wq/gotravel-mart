@@ -1,0 +1,13 @@
+{
+  "name": "gotravel-mart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GoTravel Mart — travel marketplace with backend, CRM + WhatsApp integration and an admin panel",
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "dev": "node --no-warnings --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}
