@@ -20,7 +20,9 @@ function tokenOf(req) {
   const h = req.headers['authorization'] || '';
   return h.startsWith('Bearer ') ? h.slice(7) : '';
 }
+function authRequired() { return !!process.env.ADMIN_PASSWORD; }
 function authed(req) {
+  if (!authRequired()) return true; // open admin when no ADMIN_PASSWORD is set
   const t = tokenOf(req);
   return !!t && !!db.prepare('SELECT token FROM sessions WHERE token = ?').get(t);
 }
@@ -246,9 +248,12 @@ async function handle(req, res) {
   }
 
   // ----- admin auth -----
+  if (method === 'GET' && seg[0] === 'admin' && seg[1] === 'status') {
+    return send(res, 200, { authRequired: authRequired() });
+  }
   if (method === 'POST' && seg[0] === 'admin' && seg[1] === 'login') {
     const { password } = await readJson(req);
-    if (!password || password !== (process.env.ADMIN_PASSWORD || 'admin123')) {
+    if (authRequired() && password !== process.env.ADMIN_PASSWORD) {
       return send(res, 401, { error: 'Incorrect password' });
     }
     const token = genToken();

@@ -348,7 +348,13 @@
     }
 
     /* ---- boot ---- */
-    if (token) showApp(); else showLogin();
+    fetch('/api/admin/status').then(r => r.json()).then(s => {
+      if (!s.authRequired) {            // open mode — no password set
+        $('#logout').style.display = 'none';
+        showApp();
+      } else if (token) showApp();
+      else showLogin();
+    }).catch(() => { token ? showApp() : showLogin(); });
   })();
   </script>
 </body>
