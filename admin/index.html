@@ -183,7 +183,13 @@
         const d = await r.json();
         if (!r.ok) throw new Error(d.error || 'Login failed');
         token = d.token; localStorage.setItem(TKEY, token); $('#pw').value = ''; showApp();
-      } catch (err) { $('#login-err').textContent = err.message; $('#login-err').style.display = 'block'; }
+      } catch (err) {
+        const offline = (err instanceof TypeError) || /fetch|network|load failed/i.test(err.message || '');
+        $('#login-err').innerHTML = offline
+          ? "Can't reach the server. Open this page at <strong>http://localhost:3000/admin/</strong> with the server running (<code>npm start</code>) — not by double-clicking the file."
+          : esc(err.message);
+        $('#login-err').style.display = 'block';
+      }
     });
     $('#logout').addEventListener('click', async () => { try { await api('/admin/logout', { method: 'POST' }); } catch {} logout(); });
 
